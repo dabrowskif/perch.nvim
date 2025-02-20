@@ -11,7 +11,8 @@ local misc = {
 ---@class Perch.Keymaps
 ---@type table<string, {string, table|nil}>
 local keymaps = {
-	["<leader>tk"] = { "<cmd>lua require('perch').toggle()<CR>", { desc = "Toggle Perch" } },
+	["<leader>tk"] = { "n", "<cmd>lua require('perch').toggle()<CR>", { desc = "[T]oggle Perch" } },
+	["<leader>pu"] = { "v", "<cmd>lua require('perch').add_selection_to_buf()<CR>", { desc = "[P]erch [U]pdate" } },
 }
 
 ---@class Perch.Options

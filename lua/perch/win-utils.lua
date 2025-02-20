@@ -25,6 +25,7 @@ WinUtils.open = function(buf)
 	local row = math.floor((height - win_height) / 2)
 	local col = math.floor((width - win_width) / 2)
 
+	local title = vim.api.nvim_buf_get_name(buf)
 	local win = vim.api.nvim_open_win(buf, true, {
 		relative = "editor",
 		width = win_width,
@@ -33,7 +34,7 @@ WinUtils.open = function(buf)
 		col = col,
 		style = "minimal",
 		border = "rounded",
-		title = "notes",
+		title = title,
 		title_pos = "center",
 	})
 
