@@ -51,13 +51,13 @@ local function create_file_if_not_exist(filepath)
 	end
 end
 
---- @param opts Options
+--- @param opts Perch.Options
 --- @return number
 BufUtils.init = function(opts)
 	local notes_dir = vim.fn.expand(opts.misc.notes_dir)
 	local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h")
 	local filename = generate_filename(project_name)
-	local filepath = notes_dir .. filename .. "." .. opts.misc.default_file_extension
+	local filepath = notes_dir .. filename .. "." .. opts.misc.file_extension
 
 	create_dir_if_not_exist(notes_dir)
 	create_file_if_not_exist(filepath)

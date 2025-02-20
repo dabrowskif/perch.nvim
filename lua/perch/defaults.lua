@@ -1,23 +1,22 @@
----@class Options
----@field keymaps Keymaps
----@field misc Misc
-
----@class Misc
----@field storage_path string
+---@class Perch.Misc
+---@field notes_dir string
 ---@field auto_save boolean
----@field file_extension "txt"|'md',
+---@field file_extension "txt"|'md'
 local misc = {
 	notes_dir = vim.fn.stdpath("data") .. "/perch/",
 	auto_save = true,
-	default_file_extension = "txt",
+	file_extension = "txt",
 }
 
----@class Keymaps
----@field [string] {string, table}  -- Key is a string, value is a table containing: mode, command, options
+---@class Perch.Keymaps
+---@type table<string, {string, table|nil}>
 local keymaps = {
 	["<leader>tk"] = { "<cmd>lua require('perch').toggle()<CR>", { desc = "Toggle Perch" } },
 }
 
+---@class Perch.Options
+---@field keymaps Perch.Keymaps
+---@field misc Perch.Misc
 local options = {
 	misc = misc,
 	keymaps = keymaps,

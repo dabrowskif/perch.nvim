@@ -10,7 +10,7 @@ local buf = nil
 ---@type number|nil
 local win = nil
 
----@type Options
+---@type Perch.Options
 M.options = defaults
 
 local function setup_keymaps()
@@ -31,7 +31,7 @@ M.open = function()
 	if not BufUtils.is_valid(buf) then
 		buf = BufUtils.init(M.options)
 	end
-
+	assert(type(buf) == "number", "Expected buf to be a number")
 	win = WinUtils.open(buf)
 end
 
